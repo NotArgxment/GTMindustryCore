@@ -19,6 +19,7 @@ public class CustomMaterialBuilder {
                 .buildAndRegister();
 
         SporePod = new Material.Builder(MindgregCore.id("spore_pod"))
+                .gem()
                 .color(0x9F78DC)
                 .secondaryColor(0x5441B0)
                 .iconSet(MaterialIconSet.QUARTZ)

@@ -9,6 +9,7 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
+import com.mgcore.client.Casings;
 import com.mgcore.client.CustomMaterials;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -48,6 +49,12 @@ public class MindgregCore {
         MinecraftForge.EVENT_BUS.register(this);
 
         MGCoreRegistry.registerRegistrate();
+
+        initRegistry();
+    }
+
+    private void initRegistry(){
+        Casings.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
