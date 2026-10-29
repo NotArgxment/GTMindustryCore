@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.mgcore;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
@@ -10,11 +10,11 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @GTAddon
-public class ExampleGTAddon implements IGTAddon {
+public class MindgregGTAddon implements IGTAddon {
 
     @Override
     public GTRegistrate getRegistrate() {
-        return ExampleMod.EXAMPLE_REGISTRATE;
+        return MindgregCore.MGCoreRegistry;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ExampleGTAddon implements IGTAddon {
 
     @Override
     public String addonModId() {
-        return ExampleMod.MOD_ID;
+        return MindgregCore.MOD_ID;
     }
 
     @Override
