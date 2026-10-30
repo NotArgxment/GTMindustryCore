@@ -71,7 +71,7 @@ apply from: "$rootDir/dependencies.gradle"
 
 jar {
     manifest.attributes([
-            "MixinConfigs": "mindgregcore.mixins.json"
+            "MixinConfigs": "gtmindustrycore.mixins.json"
     ])
 }
 

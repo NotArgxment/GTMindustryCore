@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "gtmindustrycore:block/casings/reinforced_iron_casing"
+  }
+}

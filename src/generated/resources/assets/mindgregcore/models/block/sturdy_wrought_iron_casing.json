@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "mindgregcore:block/casings/machine_casing_sturdy_wrought_iron"
-  }
-}
