@@ -2,13 +2,20 @@ package com.gtmindustry.client;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gtmindustry.client.e.GTMinCreativeTab;
+import com.gtmindustry.client.e.GTMinMaterialBuilder;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gtmindustry.GTMindustryCore.GTMinRegistry;
 
-public class CustomMaterials {
+public class GTMinMaterials {
+
+    static {
+        GTMinRegistry.creativeModeTab(() -> GTMinCreativeTab.CREATIVE_TAB);
+    }
 
     public static void init(){
-        CustomMaterialBuilder.register();
+        GTMinMaterialBuilder.register();
         ignoreForms();
     }
 
@@ -23,6 +30,7 @@ public class CustomMaterials {
     public static Material BlastCompound;
     public static Material Oxide;
     public static Material Carbide;
+    public static Material Graphite;
 
     // Fluids
     public static Material Slag;
@@ -43,7 +51,7 @@ public class CustomMaterials {
                 crushed, crushedPurified, crushedRefined,
                 dustImpure, dustPure, rawOre, rawOreBlock
         }) {
-            p.setIgnored(CustomMaterials.SporePod);
+            p.setIgnored(GTMinMaterials.SporePod);
         }
 
         // Only raw + ores
@@ -52,14 +60,14 @@ public class CustomMaterials {
                 crushed, crushedPurified, crushedRefined,
                 dustImpure, dustPure, rawOreBlock
         }) {
-            p.setIgnored(CustomMaterials.Scrap);
+            p.setIgnored(GTMinMaterials.Scrap);
         }
 
         // Ingot only
         for (TagPrefix p : new TagPrefix[]{
                 block, nugget, dust, dustSmall, dustTiny
         }) {
-            p.setIgnored(CustomMaterials.Metaglass);
+            p.setIgnored(GTMinMaterials.Metaglass);
         }
     }
 

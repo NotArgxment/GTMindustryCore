@@ -9,8 +9,8 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
-import com.gtmindustry.client.Casings;
-import com.gtmindustry.client.CustomMaterials;
+import com.gtmindustry.client.GTMinCasings;
+import com.gtmindustry.client.GTMinMaterials;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -54,7 +54,7 @@ public class GTMindustryCore {
     }
 
     private void initRegistry(){
-        Casings.init();
+        GTMinCasings.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -77,7 +77,7 @@ public class GTMindustryCore {
     }
 
     private void addMaterials(MaterialEvent event) {
-        CustomMaterials.init();
+        GTMinMaterials.init();
     }
 
     private void modifyMaterials(PostMaterialEvent event) {
@@ -85,14 +85,14 @@ public class GTMindustryCore {
     }
 
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        // CustomRecipeTypes.init();
+        // CustomRecipeTypes.recipeLoader();
     }
 
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        // CustomMachines.init();
+        // CustomMachines.recipeLoader();
     }
 
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
-        // CustomSounds.init();
+        // CustomSounds.recipeLoader();
     }
 }

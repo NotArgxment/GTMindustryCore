@@ -1,17 +1,12 @@
-package com.gtmindustry.client;
+package com.gtmindustry.client.e;
 
-import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.capability.recipe.IO;
-import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
-
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.crafting.RecipeType;
 
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MULTIBLOCK;
+import static com.gtmindustry.client.e.GTMinHelpers.customRecipeType;
 
-public class CustomRecipeTypes {
+public class GTMinRecipeTypes {
 
     public final static GTRecipeType GraphitePress = customRecipeType("graphite_press", MULTIBLOCK)
             .setMaxIOSize(2, 2, 2, 2)
@@ -49,11 +44,11 @@ public class CustomRecipeTypes {
             .setMaxIOSize(2, 2, 2, 2)
             .setEUIO(IO.IN);
 
-    public final static GTRecipeType Melter = customRecipeType("melter", MULTIBLOCK)
+    public final static GTRecipeType ScrapMelter = customRecipeType("melter", MULTIBLOCK)
             .setMaxIOSize(2, 2, 2, 2)
             .setEUIO(IO.IN);
 
-    public final static GTRecipeType Separator = customRecipeType("separator", MULTIBLOCK)
+    public final static GTRecipeType SlagSeparator = customRecipeType("separator", MULTIBLOCK)
             .setMaxIOSize(2, 2, 2, 2)
             .setEUIO(IO.IN);
 
@@ -112,13 +107,5 @@ public class CustomRecipeTypes {
     public final static GTRecipeType SlagIncinerator = customRecipeType("slag_incinerator", MULTIBLOCK)
             .setMaxIOSize(2, 2, 2, 2)
             .setEUIO(IO.IN);
-
-    public static GTRecipeType customRecipeType(String name, String group, RecipeType<?>... proxyRecipes) {
-        var recipeType = new GTRecipeType(GTCEu.id(name), group, proxyRecipes);
-        GTRegistries.register(BuiltInRegistries.RECIPE_TYPE, recipeType.registryName, recipeType);
-        GTRegistries.register(BuiltInRegistries.RECIPE_SERIALIZER, recipeType.registryName, new GTRecipeSerializer());
-        GTRegistries.RECIPE_TYPES.register(recipeType.registryName, recipeType);
-        return recipeType;
-    }
 
 }

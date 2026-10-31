@@ -1,18 +1,24 @@
-package com.gtmindustry.client;
+package com.gtmindustry.client.e;
 
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 
 import com.gtmindustry.GTMindustryCore;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiFunction;
 
-public class MGBlockHelper {
+public class GTMinHelpers {
 
     public static BlockEntry<Block> customCasingRegister(String name, String id, String texture,
                                                          NonNullBiFunction<Block, Item.Properties, ? extends BlockItem> func) {
@@ -30,6 +36,14 @@ public class MGBlockHelper {
                 .item(func)
                 .build()
                 .register();
+    }
+
+    public static GTRecipeType customRecipeType(String name, String group, RecipeType<?>... proxyRecipes) {
+        var recipeType = new GTRecipeType(GTCEu.id(name), group, proxyRecipes);
+        GTRegistries.register(BuiltInRegistries.RECIPE_TYPE, recipeType.registryName, recipeType);
+        GTRegistries.register(BuiltInRegistries.RECIPE_SERIALIZER, recipeType.registryName, new GTRecipeSerializer());
+        GTRegistries.RECIPE_TYPES.register(recipeType.registryName, recipeType);
+        return recipeType;
     }
 
 }

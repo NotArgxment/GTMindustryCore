@@ -1,13 +1,13 @@
-package com.gtmindustry.client;
+package com.gtmindustry.client.e;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 
 import com.gtmindustry.GTMindustryCore;
 
-import static com.gtmindustry.client.CustomMaterials.*;
+import static com.gtmindustry.client.GTMinMaterials.*;
 
-public class CustomMaterialBuilder {
+public class GTMinMaterialBuilder {
 
     public static void register() {
 
@@ -30,7 +30,13 @@ public class CustomMaterialBuilder {
                 .iconSet(MaterialIconSet.SHINY)
                 .buildAndRegister();
 
-        //
+        Graphite = new Material.Builder(GTMindustryCore.id("graphite"))
+                .ingot()
+                .color(0x95ABD8)
+                .secondaryColor(0x6B77A0)
+                .iconSet(MaterialIconSet.METALLIC)
+                .buildAndRegister();
+
         Plastanium = new Material.Builder(GTMindustryCore.id("plastanium"))
                 .ingot()
                 .color(0x9DB765)
@@ -39,19 +45,26 @@ public class CustomMaterialBuilder {
                 .buildAndRegister();
 
         Pyratite = new Material.Builder(GTMindustryCore.id("plastanium"))
-                .ingot()
+                .gem()
+                .color(0xFFA95F)
+                .secondaryColor(0xD37F47)
+                .iconSet(MaterialIconSet.QUARTZ)
                 .buildAndRegister();
 
         PhaseFabric = new Material.Builder(GTMindustryCore.id("plastanium"))
                 .ingot()
+                .color(0xFFD49E)
+                .secondaryColor(0xF39C86)
+                .iconSet(MaterialIconSet.SHINY)
                 .buildAndRegister();
 
+        /*
         SurgeAlloy = new Material.Builder(GTMindustryCore.id("plastanium"))
                 .ingot()
                 .buildAndRegister();
 
         BlastCompound = new Material.Builder(GTMindustryCore.id("plastanium"))
-                .ingot()
+                .gem()
                 .buildAndRegister();
 
         Oxide = new Material.Builder(GTMindustryCore.id("plastanium"))
@@ -85,6 +98,6 @@ public class CustomMaterialBuilder {
         Cyanogen = new Material.Builder(GTMindustryCore.id("slag"))
                 .gas()
                 .buildAndRegister();
-
+         */
     }
 }
