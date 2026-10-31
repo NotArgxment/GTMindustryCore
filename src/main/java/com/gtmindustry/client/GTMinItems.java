@@ -1,6 +1,6 @@
 package com.gtmindustry.client;
 
-import com.gtmindustry.client.e.GTMinCreativeTab;
+import com.gtmindustry.client.misc.GTMinCreativeTab;
 
 import static com.gtmindustry.GTMindustryCore.GTMinRegistry;
 

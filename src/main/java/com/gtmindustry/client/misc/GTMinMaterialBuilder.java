@@ -1,4 +1,4 @@
-package com.gtmindustry.client.e;
+package com.gtmindustry.client.misc;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
@@ -9,12 +9,11 @@ import static com.gtmindustry.client.GTMinMaterials.*;
 
 public class GTMinMaterialBuilder {
 
-    public static void register() {
+    public static void registerMaterials() {
 
         Scrap = new Material.Builder(GTMindustryCore.id("scrap"))
                 .ore()
                 .color(0xEB9834).secondaryColor(0xD9B993)
-                .iconSet(MaterialIconSet.DULL)
                 .buildAndRegister();
 
         SporePod = new Material.Builder(GTMindustryCore.id("spore_pod"))
@@ -34,24 +33,22 @@ public class GTMinMaterialBuilder {
                 .ingot()
                 .color(0x95ABD8)
                 .secondaryColor(0x6B77A0)
-                .iconSet(MaterialIconSet.METALLIC)
                 .buildAndRegister();
 
         Plastanium = new Material.Builder(GTMindustryCore.id("plastanium"))
                 .ingot()
                 .color(0x9DB765)
                 .secondaryColor(0xCBD97F)
-                .iconSet(MaterialIconSet.METALLIC)
                 .buildAndRegister();
 
-        Pyratite = new Material.Builder(GTMindustryCore.id("plastanium"))
+        Pyratite = new Material.Builder(GTMindustryCore.id("pyratite"))
                 .gem()
                 .color(0xFFA95F)
                 .secondaryColor(0xD37F47)
                 .iconSet(MaterialIconSet.QUARTZ)
                 .buildAndRegister();
 
-        PhaseFabric = new Material.Builder(GTMindustryCore.id("plastanium"))
+        PhaseFabric = new Material.Builder(GTMindustryCore.id("phase_fabric"))
                 .ingot()
                 .color(0xFFD49E)
                 .secondaryColor(0xF39C86)

@@ -1,4 +1,4 @@
-package com.gtmindustry.client.e;
+package com.gtmindustry.client.misc;
 
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
 import com.gregtechceu.gtceu.common.data.machines.GCYMMachines;
@@ -11,7 +11,7 @@ import static com.gtmindustry.GTMindustryCore.GTMinRegistry;
 public class GTMinCreativeTab {
 
     public static RegistryEntry<CreativeModeTab> CREATIVE_TAB = GTMinRegistry
-            .defaultCreativeTab(GTMindustryCore.MOD_ID + "_multiblocks",
+            .defaultCreativeTab(GTMindustryCore.MOD_ID,
                     builder -> builder
                             .displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(GTMindustryCore.MOD_ID, GTMinRegistry))
                             .title(GTMinRegistry.addLang("itemGroup", GTMindustryCore.id("creative_tab"), "GT Mindustry Core"))

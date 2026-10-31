@@ -1,4 +1,4 @@
-package com.gtmindustry.client.e;
+package com.gtmindustry.client.misc;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeSerializer;
@@ -20,30 +20,20 @@ import com.tterrag.registrate.util.nullness.NonNullBiFunction;
 
 public class GTMinHelpers {
 
-    public static BlockEntry<Block> customCasingRegister(String name, String id, String texture,
-                                                         NonNullBiFunction<Block, Item.Properties, ? extends BlockItem> func) {
+    public static BlockEntry<Block> customCasingRegister(String name, String id, String texture) {
         return GTMindustryCore.GTMinRegistry
                 .block(id, Block::new)
+                .lang(name)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
-                .tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .tag(CustomTags.MINEABLE_WITH_CONFIG_VALID_PICKAXE_WRENCH)
+                .tag(BlockTags.MINEABLE_WITH_PICKAXE, CustomTags.MINEABLE_WITH_CONFIG_VALID_PICKAXE_WRENCH)
                 .properties(p -> p.isValidSpawn((state, level, pos, ent) -> false)
                         .strength(5.0f, 6.0f)
                         .requiresCorrectToolForDrops())
                 .blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(),
-                        prov.models().cubeAll(ctx.getName(), GTMindustryCore.id("block/casings/" + texture))))
-                .lang(name)
-                .item(func)
+                        prov.models().cubeAll(ctx.getName(), GTMindustryCore.id(texture))))
+                .item(BlockItem::new)
                 .build()
                 .register();
-    }
-
-    public static GTRecipeType customRecipeType(String name, String group, RecipeType<?>... proxyRecipes) {
-        var recipeType = new GTRecipeType(GTCEu.id(name), group, proxyRecipes);
-        GTRegistries.register(BuiltInRegistries.RECIPE_TYPE, recipeType.registryName, recipeType);
-        GTRegistries.register(BuiltInRegistries.RECIPE_SERIALIZER, recipeType.registryName, new GTRecipeSerializer());
-        GTRegistries.RECIPE_TYPES.register(recipeType.registryName, recipeType);
-        return recipeType;
     }
 
 }

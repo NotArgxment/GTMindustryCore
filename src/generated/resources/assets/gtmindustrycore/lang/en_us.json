@@ -1,6 +1,12 @@
 {
+  "block.gtmindustrycore.plated_steel_casing": "Plated Steel Casing",
   "block.gtmindustrycore.reinforced_iron_casing": "Reinforced Iron Casing",
+  "itemGroup.gtmindustrycore.creative_tab": "GT Mindustry Core",
+  "material.gtmindustrycore.graphite": "Graphite",
   "material.gtmindustrycore.metaglass": "Metaglass",
+  "material.gtmindustrycore.phase_fabric": "Phase Fabric",
+  "material.gtmindustrycore.plastanium": "Plastanium",
+  "material.gtmindustrycore.pyratite": "Pyratite",
   "material.gtmindustrycore.scrap": "Scrap",
   "material.gtmindustrycore.spore_pod": "Spore Pod"
 }

@@ -2,8 +2,10 @@ package com.gtmindustry.client;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gtmindustry.client.e.GTMinCreativeTab;
-import com.gtmindustry.client.e.GTMinMaterialBuilder;
+import com.gtmindustry.client.misc.GTMinCreativeTab;
+import com.gtmindustry.client.misc.GTMinMaterialBuilder;
+
+import java.util.Set;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gtmindustry.GTMindustryCore.GTMinRegistry;
@@ -15,7 +17,7 @@ public class GTMinMaterials {
     }
 
     public static void init(){
-        GTMinMaterialBuilder.register();
+        GTMinMaterialBuilder.registerMaterials();
         ignoreForms();
     }
 
@@ -42,33 +44,49 @@ public class GTMinMaterials {
     public static Material Ozone;
     public static Material Cyanogen;
 
+    private static final Set<TagPrefix> SporePodIgnored = Set.of(
+            TagPrefix.ore,
+            TagPrefix.gem
+    );
+
     public static void ignoreForms() {
 
-        // Only quartzite form + ore
-        for (TagPrefix p : new TagPrefix[]{
-                block, dust, dustSmall, dustTiny,
-                gemChipped, gemFlawed, gemFlawless, gemExquisite,
-                crushed, crushedPurified, crushedRefined,
-                dustImpure, dustPure, rawOre, rawOreBlock
-        }) {
-            p.setIgnored(GTMinMaterials.SporePod);
-        }
+        // Keep Ore and Gem forms
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.ore && p != TagPrefix.gem)
+                .forEach(p -> p.setIgnored(GTMinMaterials.SporePod));
 
-        // Only raw + ores
-        for (TagPrefix p : new TagPrefix[]{
-                block, dust, dustSmall, dustTiny,
-                crushed, crushedPurified, crushedRefined,
-                dustImpure, dustPure, rawOreBlock
-        }) {
-            p.setIgnored(GTMinMaterials.Scrap);
-        }
+        // Keep Ore form
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.ore && p != TagPrefix.gem)
+                .forEach(p -> p.setIgnored(GTMinMaterials.Scrap));
 
-        // Ingot only
-        for (TagPrefix p : new TagPrefix[]{
-                block, nugget, dust, dustSmall, dustTiny
-        }) {
-            p.setIgnored(GTMinMaterials.Metaglass);
-        }
+        // Keep ingot form
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.ingot)
+                .forEach(p -> p.setIgnored(GTMinMaterials.Metaglass));
+
+        // Keep gem form
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.gem)
+                .forEach(p -> p.setIgnored(GTMinMaterials.Pyratite));
+
+        // Keep ingot form
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.ingot)
+                .forEach(p -> p.setIgnored(GTMinMaterials.Plastanium));
+
+        // Keep gem form
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.gem)
+                .forEach(p -> p.setIgnored(GTMinMaterials.PhaseFabric));
+
+        // Keep ingot form
+        TagPrefix.PREFIXES.values().stream()
+                .filter(p -> p != TagPrefix.ingot)
+                .forEach(p -> p.setIgnored(GTMinMaterials.Graphite));
+
+
     }
 
 }
